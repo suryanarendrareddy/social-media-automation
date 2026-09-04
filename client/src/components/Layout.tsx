@@ -27,17 +27,19 @@ const Layout = () => {
           <button
           aria-label="Open navigation menu"
             className="md:hidden p-2 -ml-2 text-slate-600"
-            onClick={() => setIsMobileMenuOpen(true)}
+            onClick={() => setIsMobileOpen(true)}
           >
             <MenuIcon className="size-6" />
           </button>
-          <div>
+          <div className="md:py-3">
             <h1 className="text-slate-900">{title}</h1>
             <p className="text-sm text-slate-400 hidden sm:block">Manage and automate your social presence</p>
           </div>
         </header>
-        <main className="flex overflow-auto p-4 sm:p-6 md:p-8 xl:p-12">
-          <Outlet />
+        <main className="flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 md:p-8 xl:p-12">
+          <div className="w-full min-h-full pb-4">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>
