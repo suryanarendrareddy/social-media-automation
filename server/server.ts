@@ -11,17 +11,16 @@ await connectDB();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Server is Live!");
 });
 
-//global error handler
-
+//Global error handler
 app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
   console.error(err);
-  res.status(500).send(err?.res?.data?.message || err?.message);
+  res.status(500).send(err?.message || "Internal Server Error");
 });
 
 
